@@ -1,44 +1,44 @@
-#include <stdio.h>
- 
-int main() {
- 
-     int i, mov ;
-    
-     //movimento do bispo:
-    
-         printf("MOVIMENTO DO BISPO:\n");
-         printf("Escolha quantas casas deseja mover o BISPO:\n");
-         scanf ("%d",&mov);
-         printf("*************************\n");
-    
-         for(i = 0; i < mov; i++)
-         {
-             printf("%d - para cima \n",i+1);
-             printf("%d - para a direita\n",i+1);
-         }
-     //movimento da torre:
-    
-         printf("MOVIMENTO TORRE :\n");
-         printf("escolha quantas casas deseja mover a TORRE:\n");
-         scanf ("%d",&mov); 
-         printf("*************************\n");
- 
-         for(i = 0;i < mov; i++)
-         {
-             printf("%d - para direita \n",i+1);
-         }
-     //movimento da rainha:
-    
-         printf("MOVIMENTO DA RAINHA\n");
-         printf("escolha quantas casas deseja mover a RAINHA:\n");
-         scanf ("%d",&mov);
-         printf("*************************\n");
- 
-         for(i = 0; i < mov ; i++)
-         {
-             printf("%d para a esquerda \n", i+1);
-         }
- 
-     
-    return 0;
- }
+#include  <stdio.h>
+
+int main(){
+
+int torre = 0, bispo = 0, rainha = 0;
+int movecavalo = 1;
+
+//move a torre 5 casas a direita
+printf("\n Movendo a Torre\n");
+for (torre = 0; torre <5; torre++) {
+    printf("Direita\n");
+}
+//movendo o bispo 5 casas diagonal á cima e á direita
+printf("\n Movendo o Bispo\n");
+
+while (bispo < 5)
+{
+    printf("Cima, Direita\n");
+    bispo++;
+}
+// movendo a rainha 8 casas a esquerda
+
+printf("\n Movendo a Rainha\n");
+do{
+printf(" Esquerda\n");
+rainha++;
+} while (rainha < 8);
+rainha++;
+
+// movimento do cavalo
+printf("\n Movendo o cavalo\n");
+
+while (movecavalo--)
+{
+    for(int i = 0; i < 2; i++){
+        printf("Baixo\n"); //imprime para baixo 2x
+    }
+        printf("Direita\n"); //imprime para direita 1x
+}
+return 0;
+
+
+
+}
