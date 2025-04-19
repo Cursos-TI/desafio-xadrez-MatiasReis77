@@ -1,44 +1,74 @@
-#include  <stdio.h>
+#include <stdio.h>
 
-int main(){
-
-int torre = 0, bispo = 0, rainha = 0;
-int movecavalo = 1;
-
-//move a torre 5 casas a direita
-printf("\n Movendo a Torre\n");
-for (torre = 0; torre <5; torre++) {
-    printf("Direita\n");
+// Função do menu
+void menu() {
+    printf("Selecione uma opção:\n");
+    printf("1 - Movimento Bispo\n");
+    printf("2 - Movimento Rainha\n");
+    printf("3 - Movimento Torre\n");
+    printf("4 - Movimento Cavalo\n");
+    printf("Digite '0' para sair.\n\n");
 }
-//movendo o bispo 5 casas diagonal á cima e á direita
-printf("\n Movendo o Bispo\n");
 
-while (bispo < 5)
-{
-    printf("Cima, Direita\n");
-    bispo++;
-}
-// movendo a rainha 8 casas a esquerda
-
-printf("\n Movendo a Rainha\n");
-do{
-printf(" Esquerda\n");
-rainha++;
-} while (rainha < 8);
-rainha++;
-
-// movimento do cavalo
-printf("\n Movendo o cavalo\n");
-
-while (movecavalo--)
-{
-    for(int i = 0; i < 2; i++){
-        printf("Baixo\n"); //imprime para baixo 2x
+// Funções separadas para os movimentos
+void movimento_bispo() {
+    for (int i = 1; i <= 2; i++) {
+        printf("Mova Para Cima, \n");
     }
-        printf("Direita\n"); //imprime para direita 1x
+    printf("Mova Para a Direita\n");
 }
-return 0;
 
+void movimento_rainha() {
+    for (int i = 1; i <= 8; i++) {
+        printf("Mova %d Para a Esquerda\n", i);
+    }
+}
 
+void movimento_torre() {
+    for (int i = 1; i <= 5; i++) {
+        printf("Mova %d Para Frente\n", i);
+    }
+}
 
+void movimento_cavalo() {
+    for (int i = 0; i < 2; i++) {
+        printf("Mova para Cima\n");
+    }
+    printf("Mova para direita\n");
+}
+
+int main() {
+    int opcao;
+
+    do {
+        menu();
+        printf("Digite a sua opção: ");
+        scanf("%d", &opcao);
+        printf("\n");
+
+        switch (opcao) {
+            case 1:
+                movimento_bispo();
+                break;
+            case 2:
+                movimento_rainha();
+                break;
+            case 3:
+                movimento_torre();
+                break;
+            case 4:
+                movimento_cavalo();
+                break;
+            case 0:
+                printf("Saindo do programa...\n");
+                break;
+            default:
+                printf("Opção inválida, tente novamente.\n");
+        }
+
+        printf("\n"); // quebra de linha após cada execução
+
+    } while (opcao != 0);
+
+    return 0;
 }
